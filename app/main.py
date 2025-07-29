@@ -4,11 +4,15 @@ from routes import products, orders, auth
 from fastapi.responses import HTMLResponse
 import os
 from dotenv import load_dotenv
+from fastapi.staticfiles import StaticFiles
+
 
 app = FastAPI(title="Neptis Webshop API")
 
 load_dotenv()
 origins = os.getenv("CORS_ALLOW_ORIGINS", "").split(",")
+
+app.mount("/uploads", StaticFiles(directory="storage/uploads"), name="uploads")
 
 app.add_middleware(
     CORSMiddleware,
