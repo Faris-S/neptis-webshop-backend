@@ -27,6 +27,7 @@ class Order(BaseModel):
     items: List[OrderItem]
     created_at: datetime
     status: str
+    status_date: Optional[datetime] = None
     customer: CustomerInfo
 
 class AdminUser(BaseModel):

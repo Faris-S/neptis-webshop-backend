@@ -15,7 +15,7 @@ def get_all_orders():
 def create_order(order: Order):
     orders = load_data("orders.json")
     order.created_at = datetime.now()
-    order.status = "Accepted"
+    order.status = "Pending"
     orders.append(order.dict())
     save_data("orders.json", orders)
     return {"message": "Order created and admin notified"}
