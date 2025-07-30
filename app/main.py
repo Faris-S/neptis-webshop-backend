@@ -10,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 app = FastAPI(title="Neptis Webshop API")
 
 load_dotenv()
-origins = os.getenv("CORS_ALLOW_ORIGINS", "").split(",")
+origins = os.getenv("CORS_ALLOW_ORIGINS", "*").split(",")
 
 app.mount("/uploads", StaticFiles(directory="storage/uploads"), name="uploads")
 
